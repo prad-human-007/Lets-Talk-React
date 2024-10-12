@@ -53,8 +53,8 @@ const defaultConfig: AppConfig = {
       audio: true,
       video: true,
     },
-    ws_url: "",
-    token: "",
+    ws_url: process.env.NEXT_PUBLIC_LIVEKIT_URL ?? "",
+    token: process.env.ROOM_TOKEN ?? "",
   },
   show_qr: false,
 };
