@@ -54,7 +54,7 @@ const defaultConfig: AppConfig = {
       video: true,
     },
     ws_url: "wss://lets-talk-7piai6ad.livekit.cloud",
-    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mjg3NTg4MjIsImlzcyI6IkFQSXI5ZFFYUUFEWmpEdCIsIm5iZiI6MTcyODc1NzkyMiwic3ViIjoicGFkZHktMiIsInZpZGVvIjp7ImNhblB1Ymxpc2giOnRydWUsImNhblB1Ymxpc2hEYXRhIjp0cnVlLCJjYW5TdWJzY3JpYmUiOnRydWUsInJvb20iOiJ0ZXN0LTIiLCJyb29tSm9pbiI6dHJ1ZX19.vDNJOd7or7ePnGXQEkRgnP0DlAmPAXnK5_eLuhfImWg",
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mjg3NjQwMTgsImlzcyI6IkFQSXI5ZFFYUUFEWmpEdCIsIm5iZiI6MTcyODc1ODAxOCwic3ViIjoicGFkZHktMyIsInZpZGVvIjp7ImNhblB1Ymxpc2giOnRydWUsImNhblB1Ymxpc2hEYXRhIjp0cnVlLCJjYW5TdWJzY3JpYmUiOnRydWUsInJvb20iOiJ0ZXN0LTMiLCJyb29tSm9pbiI6dHJ1ZX19.ln-vTcLN2R2Qq5VddGEd79wrh0l6mFY2bBtUI2p2MBc",
   },
   show_qr: false,
 };
