@@ -53,8 +53,8 @@ const defaultConfig: AppConfig = {
       audio: true,
       video: true,
     },
-    ws_url: process.env.NEXT_PUBLIC_LIVEKIT_URL ?? "",
-    token: process.env.ROOM_TOKEN ?? "",
+    ws_url: "wss://lets-talk-7piai6ad.livekit.cloud",
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mjg3NTUxNzUsImlzcyI6IkFQSXI5ZFFYUUFEWmpEdCIsIm5iZiI6MTcyODc0OTE3NSwic3ViIjoicGFkZHkiLCJ2aWRlbyI6eyJjYW5QdWJsaXNoIjp0cnVlLCJjYW5QdWJsaXNoRGF0YSI6dHJ1ZSwiY2FuU3Vic2NyaWJlIjp0cnVlLCJyb29tIjoidGVzdC0xIiwicm9vbUpvaW4iOnRydWV9fQ.fMr4FQXEZ0xh270W4tuzcjqyPKDI3_sm07_GO5Au_sI",
   },
   show_qr: false,
 };
