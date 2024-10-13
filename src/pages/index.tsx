@@ -56,7 +56,7 @@ export function HomeInner() {
   );
 
   const showPG = useMemo(() => {
-    if ("wss://lets-talk-7piai6ad.livekit.cloud") {
+    if (process.env.NEXT_PUBLIC_LIVEKIT_URL) {
       return true;
     }
     if(wsUrl) {
@@ -111,7 +111,7 @@ export function HomeInner() {
             <Playground
               themeColors={themeColors}
               onConnect={(c) => {
-                const m = "wss://lets-talk-7piai6ad.livekit.cloud" ? "env" : mode;
+                const m = "env"; //process.env.NEXT_PUBLIC_LIVEKIT_URL ? "env" : mode;
                 handleConnect(c, m);
               }}
             />
