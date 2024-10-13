@@ -50,10 +50,11 @@ export const ConnectionProvider = ({
         }
         url = cloudWSUrl;
       } else if (mode === "env") {
-        if (!process.env.NEXT_PUBLIC_LIVEKIT_URL) {
+        if (!"wss://lets-talk-7piai6ad.livekit.cloud") {
           throw new Error("NEXT_PUBLIC_LIVEKIT_URL is not set");
         }
-        url = process.env.NEXT_PUBLIC_LIVEKIT_URL;
+        url = "wss://lets-talk-7piai6ad.livekit.cloud";
+
         const { accessToken } = await fetch("/api/token").then((res) =>
           res.json()
         );
