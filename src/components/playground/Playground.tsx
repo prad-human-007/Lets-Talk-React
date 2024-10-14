@@ -162,7 +162,7 @@ export default function Playground({
 
   const audioTileContent = useMemo(() => {
     const disconnectedContent = (
-      <div className="flex flex-col items-center justify-center gap-2 text-gray-700 text-center w-full">
+      <div className="flex flex-col items-center justify-center gap-2 italic text-gray-700 text-center w-full">
        Connect to get started.
       </div>
     );
@@ -406,28 +406,30 @@ export default function Playground({
 
   return (
     <>
-      {/* <PlaygroundHeader
-        title={config.title}
-        logo={logo}
-        githubLink={config.github_link}
-        height={headerHeight}
-        accentColor={config.settings.theme_color}
-        connectionState={roomState}
-        onConnectClicked={() =>
-          onConnect(roomState === ConnectionState.Disconnected)
-        }
-      /> */}
+      <div className="flex flex-col gap-4 w-full h-full py-3">
 
-      <div className="flex flex-col">
-        <div className="flex gap-2 item-start justify-start mb-4">
-          <Button
-            accentColor={config.settings.theme_color}
-            disabled={false}>
-              Mission
-          </Button>
+        <div className="flex flex-row justify-start gap-3  mb-4">
+          <div>
+            <Button
+              accentColor={config.settings.theme_color}
+              disabled={false}>
+                Mission
+            </Button>
+          </div>
         </div>
 
-        <div className="flex py-4 flex-col gap-2 item-center justify-center">
+        <div className="flex w-full h-full py-6 flex-col gap-2 item-center justify-around">
+          
+          <div className="flex flex-col py-6 gap-3 justify-around">
+            <h1 className="text-4xl leading-tight text-center">
+              India's First Realtime Voice AI Teacher
+            </h1>
+            <h1 className="text-l leading-tight text-center">
+            Trained to give personalized tutoring to 
+            Primary and Secondary Students
+            </h1>
+          </div>
+
           <div className="flex item-center justify-center">
             {/* <PlaygroundTile
                 // title="Audio"
@@ -466,9 +468,12 @@ export default function Playground({
                 //   deviceSelectorKind="audioinput"
                 // >
                 <div className="flex flex-col item-center gap-2 justify-center">
-                  <div className="h-[50px] justify-center rounded-full overflow-hidden ">
+                  <div className="flex justify-center">
+                  <div className="w-[200px] h-[50px] justify-center rounded-full overflow-hidden ">
                       <AudioInputTile trackRef={localMicTrack} />
                   </div>
+                  </div>
+                  
                   <div className="flex flex-row gap-2 item-center justify-center">
                       <TrackToggle
                         className=""
@@ -484,78 +489,15 @@ export default function Playground({
 
           </div> 
         </div>
-      </div>
-      
-      {/*------------------END------------------*/}
-      {/* <div
-        className={`flex gap-4 py-4 grow w-full selection:bg-${config.settings.theme_color}-900`}
-        style={{ height: `calc(100% - ${headerHeight}px)` }}
-      >
-        <div className="flex flex-col grow basis-1/2 gap-4 h-full lg:hidden">
-          <PlaygroundTabbedTile
-            className="h-full"
-            tabs={mobileTabs}
-            initialTab={mobileTabs.length - 1}
-          />
-        </div>
-        <div
-          className={`flex-col grow basis-1/2 gap-4 h-full hidden lg:${
-            !config.settings.outputs.audio && !config.settings.outputs.video
-              ? "hidden"
-              : "flex"
-          }`}
-        >
-          {config.settings.outputs.video && (
-            <PlaygroundTile
-              title="Video"
-              className="w-full h-full grow"
-              childrenClassName="justify-center"
-            >
-              {videoTileContent}
-            </PlaygroundTile>
-          )}
-          {config.settings.outputs.audio && (
-            <PlaygroundTile
-              // title="Audio"
-              className="w-full h-full grow"
-              childrenClassName="justify-center"
-            >
-              {audioTileContent}
-            </PlaygroundTile>
-          )}
-          
-          <PlaygroundTile
-            padding={false}
-            // backgroundColor="gray-950"
-            className="h-full w-full basis-1/4 items-start overflow-y-auto hidden max-w-[480px] lg:flex"
-            childrenClassName="h-full grow items-start"
-          >
-            {settingsTileContent}
-          </PlaygroundTile>
-
+        
+        <div className="flex flex-row justify-center gap-3  mb-4">
+          <div className="flex items-center italic">
+              <h1>
+                Made by Pradhumn &lt;3
+              </h1>
+            </div>
         </div>
       </div>
-
-      <div
-          className={`flex-col`}
-      >
-        {config.settings.chat && (
-          <PlaygroundTile
-            title="Chat"
-            className="h-full grow basis-1/4 hidden lg:flex"
-          >
-            {chatTileContent}
-          </PlaygroundTile>
-        )}
-        <PlaygroundTile
-          padding={false}
-          // backgroundColor="gray-950"
-          className="h-full w-full basis-1/4 items-start overflow-y-auto hidden max-w-[480px] lg:flex"
-          childrenClassName="h-full grow items-start"
-        >
-          {settingsTileContent}
-        </PlaygroundTile>
-      </div> */}
     </>
   );
 }
