@@ -99,7 +99,7 @@ export function HomeInner() {
         </AnimatePresence>
         {showPG ? (
           <LiveKitRoom
-            className="main"
+            className="flex flex-col w-full h-full"
             serverUrl={wsUrl}
             token={token}
             connect={shouldConnect}
@@ -115,8 +115,8 @@ export function HomeInner() {
                 handleConnect(c, m);
               }}
             />
-            <RoomAudioRenderer />
-            <StartAudio label="Click to enable audio playback" />
+            {/* <RoomAudioRenderer /> */}
+            {/* <StartAudio label="Click to enable audio playback" /> */}
           </LiveKitRoom>
         ) : (
           <PlaygroundConnect
