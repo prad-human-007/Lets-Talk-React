@@ -28,6 +28,9 @@ import { ConnectionState, LocalParticipant, Track } from "livekit-client";
 import { QRCodeSVG } from "qrcode.react";
 import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import tailwindTheme from "../../lib/tailwindTheme.preval";
+import { Button } from "@/components/button/Button";
+import { PlaygroundDeviceSelector } from "@/components/playground/PlaygroundDeviceSelector";
+import { TrackToggle } from "@livekit/components-react";
 
 export interface PlaygroundMeta {
   name: string;
@@ -64,7 +67,7 @@ export default function Playground({
     }
   }, [config, localParticipant, roomState]);
 
-  const agentVideoTrack = tracks.find(
+  const agentVideoTrack = tracks.find( // agent to stream video
     (trackRef) =>
       trackRef.publication.kind === Track.Kind.Video &&
       trackRef.participant.isAgent
@@ -160,7 +163,7 @@ export default function Playground({
   const audioTileContent = useMemo(() => {
     const disconnectedContent = (
       <div className="flex flex-col items-center justify-center gap-2 text-gray-700 text-center w-full">
-        No audio track. Connect to get started.
+       Connect to get started.
       </div>
     );
 
@@ -214,14 +217,14 @@ export default function Playground({
 
   const settingsTileContent = useMemo(() => {
     return (
-      <div className="flex flex-col gap-4 h-full w-full items-start overflow-y-auto">
-        {config.description && (
+      <div className="flex flex-row gap-4 h-full w-full items-start overflow-y-auto">
+        {/* {config.description && (
           <ConfigurationPanelItem title="Description">
             {config.description}
           </ConfigurationPanelItem>
-        )}
+        )} */}
 
-        <ConfigurationPanelItem title="Settings">
+        {/* <ConfigurationPanelItem title="Settings">
           {localParticipant && (
             <div className="flex flex-col gap-2">
               <NameValueRow
@@ -235,7 +238,8 @@ export default function Playground({
               />
             </div>
           )}
-        </ConfigurationPanelItem>
+        </ConfigurationPanelItem> */}
+        {/* <div>
         <ConfigurationPanelItem title="Status">
           <div className="flex flex-col gap-2">
             <NameValueRow
@@ -272,6 +276,7 @@ export default function Playground({
             />
           </div>
         </ConfigurationPanelItem>
+        </div> */}
         {localVideoTrack && (
           <ConfigurationPanelItem
             title="Camera"
@@ -293,7 +298,27 @@ export default function Playground({
             <AudioInputTile trackRef={localMicTrack} />
           </ConfigurationPanelItem>
         )}
-        <div className="w-full">
+        <ConfigurationPanelItem
+            title="">
+              <Button
+                accentColor={
+                  roomState === ConnectionState.Connected ? "red" : config.settings.theme_color
+                }
+                disabled={roomState === ConnectionState.Connecting}
+                onClick={() => {
+                  onConnect(roomState === ConnectionState.Disconnected);
+                }}
+              >
+                {roomState === ConnectionState.Connecting ? (
+                  <LoadingSVG />
+                ) : roomState === ConnectionState.Connected ? (
+                  "Disconnect"
+                ) : (
+                  "Connect"
+                )}
+              </Button>
+        </ConfigurationPanelItem>
+        {/* <div className="w-full">
           <ConfigurationPanelItem title="Color">
             <ColorPicker
               colors={themeColors}
@@ -305,7 +330,7 @@ export default function Playground({
               }}
             />
           </ConfigurationPanelItem>
-        </div>
+        </div> */}
         {config.show_qr && (
           <div className="w-full">
             <ConfigurationPanelItem title="QR Code">
@@ -381,7 +406,7 @@ export default function Playground({
 
   return (
     <>
-      <PlaygroundHeader
+      {/* <PlaygroundHeader
         title={config.title}
         logo={logo}
         githubLink={config.github_link}
@@ -391,18 +416,78 @@ export default function Playground({
         onConnectClicked={() =>
           onConnect(roomState === ConnectionState.Disconnected)
         }
-      />
+      /> */}
+
+      <div className="main-block">
+        <div className="audio-ai">
+          {/* <PlaygroundTile
+              // title="Audio"
+              className="w-full h-full grow"
+              childrenClassName="justify-center"
+            > */}
+            {audioTileContent}
+          {/* </PlaygroundTile> */}
+        </div>
+
+        <div className="flex flex-col item-center gap-2">
+          <div className="flex item-center justify-center">
+                <Button
+                  accentColor={
+                    roomState === ConnectionState.Connected ? "red" : config.settings.theme_color
+                  }
+                  disabled={roomState === ConnectionState.Connecting}
+                  onClick={() => {
+                    onConnect(roomState === ConnectionState.Disconnected);
+                  }}
+                >
+                  {roomState === ConnectionState.Connecting ? (
+                    <LoadingSVG />
+                  ) : roomState === ConnectionState.Connected ? (
+                    "Disconnect"
+                  ) : (
+                    "Connect"
+                  )}
+                </Button>
+          </div>
+
+          <div>
+            {localMicTrack && (
+              // <ConfigurationPanelItem
+              //   title="Microphone"
+              //   deviceSelectorKind="audioinput"
+              // >
+              <div className="flex flex-col item-center gap-2 justify-center">
+                <div className="w-[200px] h-[50px] rounded-full overflow-hidden">
+                  <AudioInputTile trackRef={localMicTrack} />
+                </div>
+                <div className="flex flex-row gap-2 item-center justify-center">
+                  <TrackToggle
+                    className=""
+                    source={ Track.Source.Microphone }/>
+                  <div className="rounded-lg overflow-hidden">
+                    <PlaygroundDeviceSelector kind={"audioinput"} />
+                  </div>
+                </div>
+              </div>
+              // </ConfigurationPanelItem>
+            )}
+          </div>
+
+        </div> 
+      </div>
+      
+      {/*------------------END------------------*/}
       <div
         className={`flex gap-4 py-4 grow w-full selection:bg-${config.settings.theme_color}-900`}
         style={{ height: `calc(100% - ${headerHeight}px)` }}
       >
-        <div className="flex flex-col grow basis-1/2 gap-4 h-full lg:hidden">
+        {/* <div className="flex flex-col grow basis-1/2 gap-4 h-full lg:hidden">
           <PlaygroundTabbedTile
             className="h-full"
             tabs={mobileTabs}
             initialTab={mobileTabs.length - 1}
           />
-        </div>
+        </div> */}
         <div
           className={`flex-col grow basis-1/2 gap-4 h-full hidden lg:${
             !config.settings.outputs.audio && !config.settings.outputs.video
@@ -410,7 +495,7 @@ export default function Playground({
               : "flex"
           }`}
         >
-          {config.settings.outputs.video && (
+          {/* {config.settings.outputs.video && (
             <PlaygroundTile
               title="Video"
               className="w-full h-full grow"
@@ -418,34 +503,48 @@ export default function Playground({
             >
               {videoTileContent}
             </PlaygroundTile>
-          )}
-          {config.settings.outputs.audio && (
+          )} */}
+          {/* {config.settings.outputs.audio && (
             <PlaygroundTile
-              title="Audio"
+              // title="Audio"
               className="w-full h-full grow"
               childrenClassName="justify-center"
             >
               {audioTileContent}
             </PlaygroundTile>
           )}
-        </div>
+          
+          <PlaygroundTile
+            padding={false}
+            // backgroundColor="gray-950"
+            className="h-full w-full basis-1/4 items-start overflow-y-auto hidden max-w-[480px] lg:flex"
+            childrenClassName="h-full grow items-start"
+          >
+            {settingsTileContent}
+          </PlaygroundTile> */}
 
-        {config.settings.chat && (
+        </div>
+      </div>
+
+      <div
+          className={`flex-col`}
+      >
+        {/* {config.settings.chat && (
           <PlaygroundTile
             title="Chat"
             className="h-full grow basis-1/4 hidden lg:flex"
           >
             {chatTileContent}
           </PlaygroundTile>
-        )}
-        <PlaygroundTile
+        )} */}
+        {/* <PlaygroundTile
           padding={false}
-          backgroundColor="gray-950"
+          // backgroundColor="gray-950"
           className="h-full w-full basis-1/4 items-start overflow-y-auto hidden max-w-[480px] lg:flex"
           childrenClassName="h-full grow items-start"
         >
           {settingsTileContent}
-        </PlaygroundTile>
+        </PlaygroundTile> */}
       </div>
     </>
   );

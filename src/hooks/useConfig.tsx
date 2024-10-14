@@ -38,20 +38,20 @@ export type UserSettings = {
 
 // Fallback if NEXT_PUBLIC_APP_CONFIG is not set
 const defaultConfig: AppConfig = {
-  title: "LiveKit Agents Playground",
-  description: "A playground for testing LiveKit Agents",
+  title: "Made by Pradhumn",
+  description: "India's first Realtime Voice AI teacher",
   video_fit: "cover",
   settings: {
-    editable: true,
+    editable: false,
     theme_color: "cyan",
-    chat: true,
+    chat: false,
     inputs: {
-      camera: true,
+      camera: false,
       mic: true,
     },
     outputs: {
       audio: true,
-      video: true,
+      video: false,
     },
     ws_url: "", 
     token: "", 
