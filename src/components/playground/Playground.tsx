@@ -417,7 +417,7 @@ export default function Playground({
           </div>
         </div>
 
-        <div className="flex w-full h-full py-6 flex-col gap-2 item-center justify-around">
+        <div className="flex w-full h-full py-6 flex-col justify-around">
           
           <div className="flex flex-col py-6 gap-3 justify-around">
             <h1 className="text-4xl leading-tight text-center">
