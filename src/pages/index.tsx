@@ -78,7 +78,7 @@ export function HomeInner() {
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta
           property="og:image"
-          content="https://livekit.io/images/og/agents-playground.png"
+          content="https://w7.pngwing.com/pngs/52/142/png-transparent-computer-icons-science-training-atom-atomic.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

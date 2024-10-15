@@ -38,7 +38,7 @@ export type UserSettings = {
 
 // Fallback if NEXT_PUBLIC_APP_CONFIG is not set
 const defaultConfig: AppConfig = {
-  title: "Made by Pradhumn",
+  title: "Teacher AI",
   description: "India's first Realtime Voice AI teacher",
   video_fit: "cover",
   settings: {
