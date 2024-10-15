@@ -31,6 +31,7 @@ import tailwindTheme from "../../lib/tailwindTheme.preval";
 import { Button } from "@/components/button/Button";
 import { PlaygroundDeviceSelector } from "@/components/playground/PlaygroundDeviceSelector";
 import { TrackToggle } from "@livekit/components-react";
+import { useRouter } from "next/router";
 
 export interface PlaygroundMeta {
   name: string;
@@ -59,6 +60,8 @@ export default function Playground({
 
   const roomState = useConnectionState();
   const tracks = useTracks();
+
+  const router = useRouter();
 
   useEffect(() => {
     if (roomState === ConnectionState.Connected) {
@@ -411,8 +414,10 @@ export default function Playground({
           <div>
             <Button
               accentColor={config.settings.theme_color}
-              disabled={false}>
-                Mission
+              disabled={false}
+              onClick={() => {router.push('/vision')}}
+            >
+                Vision
             </Button>
           </div>
         </div>
@@ -423,9 +428,9 @@ export default function Playground({
             <h1 className="text-4xl leading-tight text-center">
               India&apos;s First Realtime Voice AI Teacher
             </h1>
-            <h1 className="text-l leading-tight text-center">
-            Trained to give personalized tutoring to 
-            Primary and Secondary Students
+            <h1 className="text-lg leading-tight text-center">
+            Trained to give personalized English tutoring to 
+            Primary Students. 
             </h1>
           </div>
 
@@ -490,9 +495,12 @@ export default function Playground({
         </div>
         
         <div className="flex flex-row justify-center gap-3  mb-4">
-          <div className="flex items-center ">
+          <div className="flex flex-col items-center ">
               <h1>
-                Made by Pradhumn &lt;3
+                Project by Pradhumn &lt;3
+              </h1>
+              <h1 className="text-xs text-center"> 
+                Support for more subjects and regional languages in next update. 
               </h1>
             </div>
         </div>
