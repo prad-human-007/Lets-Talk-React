@@ -7,6 +7,7 @@ import { AudioInputTile } from "@/components/config/AudioInputTile";
 import { ConfigurationPanelItem } from "@/components/config/ConfigurationPanelItem";
 import { NameValueRow } from "@/components/config/NameValueRow";
 import { PlaygroundHeader } from "@/components/playground/PlaygroundHeader";
+import { CircleOut } from "../anim/CircleOut";
 import {
   PlaygroundTab,
   PlaygroundTabbedTile,
@@ -69,6 +70,8 @@ export default function Playground({
       localParticipant.setMicrophoneEnabled(config.settings.inputs.mic);
     }
   }, [config, localParticipant, roomState]);
+
+  
 
   const agentVideoTrack = tracks.find( // agent to stream video
     (trackRef) =>
@@ -411,7 +414,7 @@ export default function Playground({
       <div className="flex flex-col gap-4 w-full h-full py-3">
 
         <div className="flex flex-row justify-start gap-3  mb-4">
-          <div>
+          {/* <div>
             <Button
               accentColor={config.settings.theme_color}
               disabled={false}
@@ -419,18 +422,16 @@ export default function Playground({
             >
                 Vision
             </Button>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex w-full h-full py-6 flex-col justify-around">
-          
           <div className="flex flex-col py-6 gap-3 justify-around">
-            <h1 className="text-4xl leading-tight text-center">
-              India&apos;s First Realtime Voice AI Teacher
+            <h1 className="text-4xl leading-tight text-center text-white">
+              Talk to Sharukh Khan
             </h1>
-            <h1 className="text-lg leading-tight text-center">
-            Trained to give personalized English tutoring to 
-            Primary Students. 
+            <h1 className="text-lg leading-tight text-center text-white">
+            Have a Real time conversation with the beloved Sharukh Khan
             </h1>
           </div>
 
@@ -495,15 +496,16 @@ export default function Playground({
         </div>
         
         <div className="flex flex-row justify-center gap-3  mb-4">
-          <div className="flex flex-col items-center ">
+          <div className="flex flex-col items-center text-white">
               <h1>
                 Project by Pradhumn &lt;3
               </h1>
-              <h1 className="text-xs text-center"> 
-                Support for more subjects and regional languages in next update. 
+              <h1 className="text-xs text-center text-white"> 
+                Support for more languages in next update. 
               </h1>
             </div>
         </div>
+
       </div>
     </>
   );
