@@ -427,10 +427,10 @@ export default function Playground({
 
         <div className="flex w-full h-full py-6 flex-col justify-around">
           <div className="flex flex-col py-6 gap-3 justify-around">
-            <h1 className="text-4xl leading-tight text-center text-white">
+            <h1 className="text-4xl leading-tight text-center text-black">
               Talk to Sharukh Khan
             </h1>
-            <h1 className="text-lg leading-tight text-center text-white">
+            <h1 className="text-lg leading-tight text-center text-black">
             Have a Real time conversation with the beloved Sharukh Khan
             </h1>
           </div>
@@ -496,11 +496,11 @@ export default function Playground({
         </div>
         
         <div className="flex flex-row justify-center gap-3  mb-4">
-          <div className="flex flex-col items-center text-white">
+          <div className="flex flex-col items-center text-black">
               <h1>
                 Project by Pradhumn &lt;3
               </h1>
-              <h1 className="text-xs text-center text-white"> 
+              <h1 className="text-xs text-center text-black"> 
                 Support for more languages in next update. 
               </h1>
             </div>
